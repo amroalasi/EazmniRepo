@@ -13,7 +13,7 @@ namespace Domain.Entities
         public string Tag { get; set; }
         public decimal Price { get; set; }
 
-        public ICollection<TemplateLanguage> TemplateLanguages { get; set; }
-        public ICollection<OrderLanguage> OrderLanguages { get; set; }
+        public ICollection<TemplateLanguage>? TemplateLanguages { get; set; }
+        public ICollection<OrderLanguage>? OrderLanguages { get; set; }
     }
 }

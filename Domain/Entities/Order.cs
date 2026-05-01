@@ -23,12 +23,11 @@ namespace Domain.Entities
         public string ApplicantEmail { get; set; }
 
         public DateTime WeddingDate { get; set; }
-        public DateTime WeddingTime { get; set; }
 
-        public ICollection<OrderLanguage> OrderLanguages { get; set; }
-        public ICollection<OrderBlock> OrderBlocks { get; set; }
-        public ICollection<OrderExtra> OrderExtras { get; set; }
-        public ICollection<OrderFormFieldValue> FormFieldValues { get; set; }
-        public ICollection<OrderGuest> Guests { get; set; }
+        public ICollection<OrderLanguage>? OrderLanguages { get; set; }
+        public ICollection<OrderBlock>? OrderBlocks { get; set; }
+        public ICollection<OrderExtra>? OrderExtras { get; set; }
+        public ICollection<OrderFormFieldValue>? FormFieldValues { get; set; }
+        public ICollection<OrderGuest>? Guests { get; set; }
     }
 }
