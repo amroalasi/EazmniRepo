@@ -13,6 +13,6 @@ namespace Domain.Entities
 
         public DateTime? ModifiedAt { get; set; }   
         public string? ModifiedBy { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; } = false;
     }
 }
