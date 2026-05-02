@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Application.Abstraction
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork
     {
+        public Task<int> savechangesAsync(CancellationToken cancellationToken = default);
     }
 }

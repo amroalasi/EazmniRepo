@@ -9,10 +9,10 @@ using System.Text;
 
 namespace Infrastructure.Database
 {
-    public class UnitOfWork (EazmniContext context ) : IUnitOfWork
+    public  class UnitOfWork (EazmniContext context ) : IUnitOfWork
     {
       
-        public Task<int> savechangesAsync(CancellationToken cancellationToken = default)
+        public async Task<int> savechangesAsync(CancellationToken cancellationToken = default)
         {
            
             IEnumerable<EntityEntry> entries = context
