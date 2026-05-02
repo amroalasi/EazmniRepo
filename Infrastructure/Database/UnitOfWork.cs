@@ -10,7 +10,7 @@ using System.Text;
 namespace Infrastructure.Database
 {
     public  class UnitOfWork (EazmniContext context ) : IUnitOfWork
-    {
+    {  
       
         public async Task<int> savechangesAsync(CancellationToken cancellationToken = default)
         {
