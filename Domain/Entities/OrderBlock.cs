@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Domain.Entities
 {
-    public class OrderBlock : Entity
+    public class OrderBlock : JunctionTabel
     {
         
 

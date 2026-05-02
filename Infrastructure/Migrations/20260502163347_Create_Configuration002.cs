@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Create_Entity_config01 : Migration
+    public partial class Create_Configuration002 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -339,7 +339,6 @@ namespace Infrastructure.Migrations
                 {
                     TemplateId = table.Column<int>(type: "int", nullable: false),
                     BlockId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -369,7 +368,6 @@ namespace Infrastructure.Migrations
                 {
                     TemplateId = table.Column<int>(type: "int", nullable: false),
                     ExtraId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -399,7 +397,6 @@ namespace Infrastructure.Migrations
                 {
                     TemplateId = table.Column<int>(type: "int", nullable: false),
                     LanguageId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -430,7 +427,6 @@ namespace Infrastructure.Migrations
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     BlockId = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -461,7 +457,6 @@ namespace Infrastructure.Migrations
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     ExtraId = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -489,8 +484,6 @@ namespace Infrastructure.Migrations
                 name: "orderFormFields",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     FormFieldId = table.Column<int>(type: "int", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -502,7 +495,7 @@ namespace Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_orderFormFields", x => x.Id);
+                    table.PrimaryKey("PK_orderFormFields", x => new { x.FormFieldId, x.OrderId });
                     table.ForeignKey(
                         name: "FK_orderFormFields_formFields_FormFieldId",
                         column: x => x.FormFieldId,
@@ -554,7 +547,6 @@ namespace Infrastructure.Migrations
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     LanguageId = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -602,11 +594,6 @@ namespace Infrastructure.Migrations
                 name: "IX_orderExtras_ExtraId",
                 table: "orderExtras",
                 column: "ExtraId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_orderFormFields_FormFieldId",
-                table: "orderFormFields",
-                column: "FormFieldId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_orderFormFields_OrderId",

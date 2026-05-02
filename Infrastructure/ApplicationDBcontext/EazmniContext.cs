@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Audit.EntityFramework;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace Infrastructure.ApplicationDBcontext
 {
-    public class EazmniContext(DbContextOptions<EazmniContext>option):DbContext(option)
+    public class EazmniContext(DbContextOptions<EazmniContext> option) :  DbContext(option)
     {
         public DbSet<User>Users { get; set; }
         public DbSet<TemplateLanguage>templateLanguages { get; set; }

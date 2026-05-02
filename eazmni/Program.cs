@@ -12,7 +12,6 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<EazmniContext> (op=>op.UseSqlServer(builder.Configuration.GetConnectionString("DBCS")));
 
 
-
 var app = builder.Build();
 
 
