@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Domain.Entities
 {
-    public class TemplateLanguage: Entity
+    public class TemplateLanguage: JunctionTabel
     {
         public int TemplateId { get; set; }
         public Template? Template { get; set; }

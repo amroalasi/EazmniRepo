@@ -3,4 +3,5 @@
   <Project Path="Domain/Domain.csproj" />
   <Project Path="eazmni/eazmni.csproj" />
   <Project Path="Infrastructure/Infrastructure.csproj" />
+  <Project Path="shared/Shared.csproj" Id="76ea94da-a37b-43ef-8071-a0e58db26387" />
 </Solution>

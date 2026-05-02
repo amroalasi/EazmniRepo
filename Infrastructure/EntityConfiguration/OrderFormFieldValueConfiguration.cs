@@ -11,7 +11,7 @@ namespace Infrastructure.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<OrderFormFieldValue> builder)
         {
-            builder.HasKey(x => x.Id);
+            builder.HasKey(x =>new { x.FormFieldId,x.OrderId});
 
             builder.HasOne(x => x.Order)
                    .WithMany(o => o.FormFieldValues)

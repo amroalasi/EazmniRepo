@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Domain.Entities
 {
-    public class OrderFormFieldValue : Entity
+    public class OrderFormFieldValue : JunctionTabel
     {
         
 
